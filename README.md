@@ -5,6 +5,21 @@
 Windows 10 / 11 için modern, gerçek sistem verileriyle çalışan sistem yönetim uygulaması.
 Görev Yöneticisi, Process Explorer, Resource Monitor ve gelişmiş sistem araçlarını tek bir hızlı arayüzde birleştirir.
 
+[Windows için indir](https://github.com/Taxperia/LocalOps/releases/latest) · [Katkıda bulun](CONTRIBUTING.md) · [Güvenlik](SECURITY.md) · [Davranış kuralları](CODE_OF_CONDUCT.md)
+
+## Ekran görüntüleri
+
+Gerçek sistem verileriyle performans izleme:
+
+![LocalOps: canlı CPU, bellek, disk ve ağ grafikleri ile çekirdek kullanımını gösteren performans sayfası](docs/images/localops-performance.png)
+
+<details>
+<summary>Ayarlar penceresini görüntüle</summary>
+
+![LocalOps: dil, görünüm, uyarılar ve güncelleme tercihlerini içeren ayarlar modali](docs/images/localops-settings.png)
+
+</details>
+
 ## Teknolojiler
 
 Electron · React 19 · TypeScript (strict) · Vite (electron-vite) · Tailwind CSS 4 · Zustand · Recharts · Lucide Icons
@@ -54,3 +69,13 @@ Otomatik arayüz testleri ayrı geçici ayarlarla gerçek sistemden veri okur; i
 ## Durum
 
 Modül bazlı ilerleme için [docs/PROGRESS.md](docs/PROGRESS.md) dosyasına bakın.
+
+## Katkı ve topluluk
+
+Hata bildirimi, geliştirme ortamı ve pull request süreci için [katkı rehberini](CONTRIBUTING.md) okuyun. Projeye katılım [davranış kurallarına](CODE_OF_CONDUCT.md) tabidir.
+
+Güvenlik açıklarını [güvenlik politikasındaki](SECURITY.md) özel bildirim kanalı üzerinden paylaşın.
+
+## Lisans
+
+LocalOps, [MIT lisansı](LICENSE) ile sunulur.
