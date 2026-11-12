@@ -38,7 +38,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         shell: pwsh
         run: |
-          Get-ChildItem dist -File | Where-Object { $_.Extension -in '.exe', '.blockmap', '.yml' } | ForEach-Object {
+          Get-ChildItem dist -File | Where-Object { $_.Name -eq 'latest.yml' -or $_.Name -like 'LocalOps-Setup-*.exe' -or $_.Name -like 'LocalOps-Setup-*.exe.blockmap' } | ForEach-Object {
             "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant())  $($_.Name)"
           } | Set-Content dist/SHA256SUMS.txt -Encoding utf8
       - name: Retain release assets
