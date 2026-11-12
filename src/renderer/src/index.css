@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #0b0d10;
+  --color-surface: #101318;
+  --color-surface-2: #151920;
+  --color-surface-3: #1b2028;
+  --color-line: #232932;
+  --color-line-soft: #1a1f27;
+  --color-ink: #e7eaef;
+  --color-ink-2: #a4abb7;
+  --color-ink-3: #6e7684;
+  --color-ok: #45d483;
+  --color-warn: #e6b450;
+  --color-danger: #e5534b;
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+}
+
+:root {
+  --accent: #7c7ff2;
+  --accent-soft: color-mix(in srgb, #7c7ff2 14%, transparent);
+}
+
+:root[data-accent='blue'] {
+  --accent: #4f8ef7;
+  --accent-soft: color-mix(in srgb, #4f8ef7 14%, transparent);
+}
+
+:root[data-accent='emerald'] {
+  --accent: #34c98e;
+  --accent-soft: color-mix(in srgb, #34c98e 14%, transparent);
+}
+
+:root[data-accent='amber'] {
+  --accent: #e6a23c;
+  --accent-soft: color-mix(in srgb, #e6a23c 14%, transparent);
+}
+
+:root[data-accent='rose'] {
+  --accent: #ef6a8b;
+  --accent-soft: color-mix(in srgb, #ef6a8b 14%, transparent);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a313c transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2a313c;
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #39424f;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Window drag regions */
+.app-drag {
+  -webkit-app-region: drag;
+}
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Titlebar overlay area: keep content clear of native window controls */
+.titlebar {
+  height: 36px;
+  margin-right: calc(100vw - env(titlebar-area-width, 100vw));
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim-fade {
+  animation: fade-in 0.16s ease-out;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.anim-pop {
+  animation: pop-in 0.14s ease-out;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.anim-pulse {
+  animation: pulse-dot 2s ease-in-out infinite;
+}

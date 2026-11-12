@@ -1,0 +1,17 @@
+node_modules/
+out/
+dist/
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+coverage/
+test-results/
+playwright-report/
+prompt.md
