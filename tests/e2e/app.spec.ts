@@ -70,10 +70,11 @@ test('renders every navigation page and returns real data from read-only APIs', 
     const [processes, connections, services, startup, apps, power, history, diagnostics] = await Promise.all([
       api.getProcesses(), api.getNetworkConnections(), api.getServices(), api.getStartupItems(), api.getInstalledApps(), api.getPowerPlans(), api.getHistoryStatus(), api.runDiagnostics()
     ])
-    return { processes: processes.processes.length, connections: Array.isArray(connections.connections), services: Array.isArray(services), startup: Array.isArray(startup), apps: Array.isArray(apps), power: Array.isArray(power), history: history.backend, diagnostics: Array.isArray(diagnostics) }
+    return { processes: processes.processes.length, connections: connections.connections.length, services: services.length, startup: Array.isArray(startup), apps: apps.length, power: power.length, history: history.backend, diagnostics: Array.isArray(diagnostics) }
   })
   expect(result.processes).toBeGreaterThan(0)
-  for (const key of ['connections', 'services', 'startup', 'apps', 'power', 'diagnostics'] as const) expect(result[key]).toBe(true)
+  for (const key of ['connections', 'services', 'apps', 'power'] as const) expect(result[key]).toBeGreaterThan(0)
+  for (const key of ['startup', 'diagnostics'] as const) expect(result[key]).toBe(true)
   expect(['sqlite', 'jsonl']).toContain(result.history)
   expect(errors).toEqual([])
 })
